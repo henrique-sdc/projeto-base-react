@@ -1,46 +1,115 @@
-# Getting Started with Create React App
+# Projeto Base React com Tailwind CSS, Lucide, ShadCN e TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositório serve como um ponto de partida pré-configurado para projetos React, economizando tempo e esforço na configuração inicial. Ele inclui as seguintes tecnologias e configurações:
 
-## Available Scripts
+## 🚀 Tecnologias
 
-In the project directory, you can run:
+*   **Front-end:**
+    *   [React](https://react.dev/) (v19): Biblioteca JavaScript para construir interfaces de usuário.
+    *   [TypeScript](https://www.typescriptlang.org/) (v5.5.2 ou v4.9.5): Superset do JavaScript que adiciona tipagem estática.
+    *   [Tailwind CSS](https://v3.tailwindcss.com/) (v3.4.17): Framework CSS utilitário para estilização rápida.
+    *   [Lucide](https://lucide.dev/): Biblioteca de ícones SVG.
+    *   [ShadCN](https://ui.shadcn.com/): Coleção de componentes reutilizáveis construídos com Tailwind CSS.
+*   **Ferramentas:**
+    *   [Node.js](https://nodejs.org/) (v22.14.0): Ambiente de execução JavaScript.
+    *   [NPM](https://www.npmjs.com/) (v11.2.0): Gerenciador de pacotes do Node.js.
+    *   [PostCSS](https://postcss.org/): Ferramenta para transformar CSS com JavaScript.
+    *   [ESLint](https://eslint.org/): Ferramenta de linting para JavaScript/TypeScript.
+    *   [Prettier](https://prettier.io/): Formatador de código.
 
-### `npm start`
+## 💻 Extensões VS Code Recomendadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*   Tailwind CSS IntelliSense
+*   Prettier - Code formatter
+*   ESLint
+*   PostCSS Language Support
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Configurações VS Code:**
 
-### `npm test`
+*   Defina "Prettier" como o formatador padrão ("Default Formatter").
+*   Habilite a formatação automática ao salvar ("Format On Save").
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📝 Configuração do ESLint
 
-### `npm run build`
+Este projeto já vem com o ESLint configurado.  Consulte a documentação para personalizações adicionais: [eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Passos de Criação e Configuração (Para Referência)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Os passos abaixo descrevem como este projeto base foi criado.  Você **NÃO** precisa executá-los ao clonar este repositório, pois ele já está configurado.  Eles estão aqui para fins de documentação e referência.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.  **Criação do Projeto:**
+    ```bash
+    npx create-react-app my-app --template typescript
+    cd my-app
+    npm start
+    ```
+    Documentação: [Create React App - Adding TypeScript](https://create-react-app.dev/docs/adding-typescript/)
 
-### `npm run eject`
+2.  **Integração do Tailwind CSS (v3.4.17) com PostCSS:**
+    ```bash
+    npm install -D tailwindcss@3 postcss autoprefixer
+    npx tailwindcss init
+    ```
+    Documentação: [Tailwind CSS v3 - Installation using PostCSS](https://v3.tailwindcss.com/docs/installation/using-postcss)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    *   **`tailwind.config.js`:**  Modifique o arquivo para incluir os caminhos dos seus arquivos de template.  (Já configurado neste projeto)
+    *   **`postcss.config.js`:**  Crie este arquivo na raiz do projeto e adicione a configuração do PostCSS. (Já configurado neste projeto)
+    *   **`src/App.css`:**  Remova o CSS padrão e adicione as diretivas do Tailwind.  (Já configurado neste projeto)
+    *   **Importe `App.css`:**  Certifique-se de importar `'./App.css'` nos seus componentes.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.  **Instalação do Lucide Icons:**
+    ```bash
+    npm install lucide-react
+    ```
+    Documentação: [Lucide - Installation](https://lucide.dev/guide/installation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4.  **Instalação e Configuração do ShadCN:**
+    ```bash
+    npm install class-variance-authority clsx tailwind-merge lucide-react tw-animate-css
+    ```
+    *   **`tsconfig.json`:**  Adicione a configuração de caminhos ("paths") para o ShadCN. (Já configurado neste projeto)
+    *   **`src/styles/globals.css`:**  Crie este arquivo e adicione os estilos globais do ShadCN. (Já configurado neste projeto)
+    *   **`src/lib/utils.ts`:**  Crie este arquivo e adicione as funções utilitárias do ShadCN. (Já configurado neste projeto)
+    *   **`components.json`:** Crie este arquivo na raiz do projeto e cole a configuração. (Já configurado neste projeto).
+    
+    Documentação: [ShadCN - Manual Installation](https://ui.shadcn.com/docs/installation/manual)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5. **Adicionando Componente Button (Exemplo):**
+    ```bash
+    npx shadcn@latest add button --force
+    ```
+    
 
-## Learn More
+## ⚠️ Observações Importantes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*   **Resolução de Caminhos (`@`):**  A configuração inicial para usar `@` como alias para caminhos de diretórios pode não funcionar corretamente.  Em alguns casos, você precisará ajustar manualmente os imports:
+    *   **Exemplo:**  Substitua `import { cn } from "@/lib/utils";` por `import { cn } from "src/lib/utils";`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*   **Tailwind CSS v4:**  Este projeto usa a versão 3.4.17 do Tailwind CSS.  Se você precisar usar a versão 4, considere usar Vite com React ou Next.js.
+
+*   **Estrutura de Pastas:**
+    *   `src/`:  Código-fonte principal (componentes, estilos, etc.).
+    *   `public/`:  Arquivos estáticos.
+    *   `package.json`:  Dependências e scripts.
+    *   `src/lib`: Funções utilitárias.
+    *   `src/styles`: Estilos globais.
+
+## 🏁 Começando
+
+1.  **Clone este repositório:**
+    ```bash
+    git clone https://github.com/henrique-sdc/projeto-base-react.git
+    cd <NOME_DA_PASTA>
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+3.  **Execute o projeto:**
+    ```bash
+    npm start
+    ```
+
+Agora você tem um projeto React pré-configurado e pronto para começar a desenvolver! Bom desenvolvimento!
